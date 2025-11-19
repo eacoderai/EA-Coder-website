@@ -47,12 +47,7 @@ export default function App() {
               <HowItWorks />
               <DataManagement />
               <Pricing />
-              <section id="documentation" className="py-20 bg-gradient-to-b from-white to-purple-50">
-                <div className="max-w-7xl mx-auto px-6 text-center">
-                  <h2 className="text-gray-800 mb-4">Documentation</h2>
-                  <p className="text-gray-600">Explore how to use EACoder and best practices. More content will be added.</p>
-                </div>
-              </section>
+              <section id="documentation" className="py-20 bg-gradient-to-b from-white to-purple-50"></section>
             </>
           }
         />
