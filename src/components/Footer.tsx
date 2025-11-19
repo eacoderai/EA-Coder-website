@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Twitter, Linkedin, Mail, Instagram } from 'lucide-react';
+import { SiTiktok } from '@icons-pack/react-simple-icons';
 import type { SVGProps } from 'react';
 import logo from 'figma:asset/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
 
@@ -40,14 +41,14 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: Twitter, href: '#' },
-                { icon: TikTokIcon, href: '#' },
-                { icon: Instagram, href: '#' },
-                { icon: Linkedin, href: '#' },
+                { icon: Twitter, href: 'https://x.com/eacoderai?s=21', label: 'Twitter' },
+                { icon: SiTiktok, href: 'https://www.tiktok.com/@eacoderai?_r=1&_t=ZS-91V505QFOVU', label: 'TikTok' },
+                { icon: Instagram, href: 'https://www.instagram.com/eacoderai?igsh=dW1scWN2eHBuaDBl', label: 'Instagram' },                
               ].map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
+                  aria-label={social.label}
                   className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-purple-600 transition-colors"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
@@ -62,14 +63,20 @@ export function Footer() {
           <div>
             <h4 className="mb-4">Product</h4>
             <ul className="space-y-2">
-              {['Features', 'Pricing', 'How it Works', 'FAQ', 'Roadmap'].map((item) => (
-                <li key={item}>
+              {[
+                { label: 'Features', href: '#features' },
+                { label: 'Pricing', href: '#pricing' },
+                { label: 'How it Works', href: '#how-it-works' },
+                { label: 'FAQ', href: '/faq' },
+                { label: 'Roadmap', href: '/roadmap' },
+              ].map((item) => (
+                <li key={item.label}>
                   <motion.a
-                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+                    href={item.href}
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                     whileHover={{ x: 5 }}
                   >
-                    {item}
+                    {item.label}
                   </motion.a>
                 </li>
               ))}
@@ -80,14 +87,20 @@ export function Footer() {
           <div>
             <h4 className="mb-4">Resources</h4>
             <ul className="space-y-2">
-              {['Documentation', 'API Reference', 'Example Strategies', 'Video Tutorials', 'Community'].map((item) => (
-                <li key={item}>
+              {[
+                { label: 'Documentation', href: '/docs' },
+                { label: 'API Reference', href: '/api' },
+                { label: 'Example Strategies', href: '/examples' },
+                { label: 'Video Tutorials', href: '/tutorials' },
+                { label: 'Community', href: '/community' },
+              ].map((item) => (
+                <li key={item.label}>
                   <motion.a
-                    href="#"
+                    href={item.href}
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                     whileHover={{ x: 5 }}
                   >
-                    {item}
+                    {item.label}
                   </motion.a>
                 </li>
               ))}
@@ -98,14 +111,20 @@ export function Footer() {
           <div>
             <h4 className="mb-4">Legal</h4>
             <ul className="space-y-2">
-              {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Disclaimer', 'Contact Us'].map((item) => (
-                <li key={item}>
+              {[
+                { label: 'Privacy Policy', href: '/privacy' },
+                { label: 'Terms of Service', href: '/terms' },
+                { label: 'Cookie Policy', href: '/cookies' },
+                { label: 'Disclaimer', href: '/disclaimer' },
+                { label: 'Contact Us', href: '/contact' },
+              ].map((item) => (
+                <li key={item.label}>
                   <motion.a
-                    href="#"
+                    href={item.href}
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                     whileHover={{ x: 5 }}
                   >
-                    {item}
+                    {item.label}
                   </motion.a>
                 </li>
               ))}

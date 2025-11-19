@@ -11,6 +11,7 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-purple-600 focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -18,7 +19,7 @@ export function Navigation() {
           className="flex items-center gap-3"
         >
           <img src={logo} alt="EA Coder" className="h-12" />
-          <span className="text-xl text-gray-800">EACODER</span>
+          <span className="text-xl text-gray-800">EA Coder</span>
         </motion.div>
         
         <div className="hidden md:flex items-center gap-8">
