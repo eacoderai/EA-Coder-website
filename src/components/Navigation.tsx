@@ -2,12 +2,49 @@ import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { Menu } from 'lucide-react';
 import logo from '../assets/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const items = ['Features', 'How it Works', 'Pricing', 'Documentation'];
+
+  // Handle hash scrolling after navigation
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // Add a small delay to ensure DOM is ready
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
+  const handleLinkClick = (e: React.MouseEvent, slug: string) => {
+    e.preventDefault();
+    
+    if (location.pathname === '/') {
+      // If on home page, smooth scroll to section
+      const element = document.getElementById(slug);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Fallback if element not found (e.g., loaded dynamically)
+        window.location.hash = slug;
+      }
+    } else {
+      // If on another page, navigate to home with hash
+      navigate(`/#${slug}`);
+    }
+    
+    setMobileOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
@@ -16,7 +53,8 @@ export function Navigation() {
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 cursor-pointer"
+          onClick={() => navigate('/')}
         >
           <img src={logo} alt="EA Coder" className="h-12" />
           <span className="text-xl text-gray-800">EA Coder</span>
@@ -32,10 +70,11 @@ export function Navigation() {
               <motion.a
                 key={item}
                 href={`#${slug}`}
+                onClick={(e) => handleLinkClick(e, slug)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-gray-700 hover:text-purple-600 transition-colors"
+                className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer"
               >
                 {item}
               </motion.a>
@@ -49,7 +88,7 @@ export function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             className="hidden md:block"
           >
-            <Button variant="ghost" className="rounded-full">
+            <Button variant="ghost" className="rounded-full" onClick={() => navigate('/login')}>
               Sign In
             </Button>
           </motion.div>
@@ -58,7 +97,10 @@ export function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <Button className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-full px-6">
+            <Button 
+              className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-full px-6"
+              onClick={() => navigate('/signup')}
+            >
               Get Started
             </Button>
           </motion.div>
@@ -89,7 +131,7 @@ export function Navigation() {
                     key={item}
                     href={`#${slug}`}
                     className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-purple-600"
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => handleLinkClick(e, slug)}
                   >
                     {item}
                   </a>
