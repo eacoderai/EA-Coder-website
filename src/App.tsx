@@ -35,7 +35,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <main id="main">
+      <main id="main" className="pt-[81px]">
       <Suspense fallback={<div className="px-6 py-10">Loading…</div>}>
       <Routes>
         <Route

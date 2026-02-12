@@ -7,7 +7,7 @@ import { Code2, Sparkles } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen pt-24 pb-20 overflow-hidden">
+    <section className="relative min-h-screen pt-12 pb-20 overflow-hidden">
       {/* Background Gradient Blob */}
       <motion.div
         className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full opacity-90"
