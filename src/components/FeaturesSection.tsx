@@ -1,144 +1,141 @@
-import { motion } from 'motion/react';
-import { Code2, MessageSquare, RefreshCw, BarChart3, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
-
-const features = [
-  {
-    icon: Code2,
-    title: 'AI Code Generation',
-    description: 'Transform plain English descriptions into production-ready MQL4, MQL5, or Pine Script code in seconds using advanced AI.',
-  },
-  {
-    icon: MessageSquare,
-    title: 'AI Chat Assistant',
-    description: 'Refine and tweak your strategies through natural conversation. Just ask the AI to add features or modify logic.',
-  },
-  {
-    icon: RefreshCw,
-    title: 'Cross-Platform Conversion',
-    description: 'Convert existing code between MQL4, MQL5, and Pine Script while preserving core trading logic.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Strategy Analysis',
-    description: 'Get instant simulated backtest metrics including win rate, profit factor, and drawdown analysis.',
-  },
-];
+import { motion, AnimatePresence } from 'motion/react';
+import { Button } from './ui/button';
+import { PhoneMockup } from './PhoneMockup';
+import { Check, Layout, Bot, FileText, Shield, Zap, TrendingUp, Code2, LineChart } from 'lucide-react';
 
 export function FeaturesSection() {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<'manual' | 'algo'>('manual');
 
   return (
-    <section id="features" className="py-20 bg-gradient-to-b from-white to-purple-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-gray-800 mb-4">Powerful Features for Traders</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
-            Everything you need to create, refine, and deploy algorithmic trading strategies without writing a single line of code.
+    <section id="features" className="py-24 bg-background relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
+          >
+            One AI Engine. <span className="text-primary">Two Ways to Trade.</span>
+          </motion.h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Whether you prefer the discipline of manual trading or the scale of automation, EA Coder has you covered.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="relative">
-          <div className="flex items-center justify-center gap-8">
-            {/* Previous Button */}
-            <motion.button
-              onClick={() => setActiveIndex((prev: number) => (prev > 0 ? prev - 1 : features.length - 1))}
-              className="hidden md:flex w-12 h-12 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+        {/* Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex p-1 bg-card border border-border rounded-2xl">
+            <button
+              onClick={() => setActiveTab('manual')}
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
+                activeTab === 'manual'
+                  ? 'bg-primary text-white shadow-lg'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
             >
-              <ChevronLeft className="w-6 h-6 text-gray-600" />
-            </motion.button>
-
-            {/* Feature Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 max-w-6xl">
-              {features.map((feature, index) => (
-                <FeatureCard
-                  key={feature.title}
-                  feature={feature}
-                  index={index}
-                  isActive={index === activeIndex}
-                  onClick={() => setActiveIndex(index)}
-                />
-              ))}
-            </div>
-
-            {/* Next Button */}
-            <motion.button
-              onClick={() => setActiveIndex((prev: number) => (prev < features.length - 1 ? prev + 1 : 0))}
-              className="hidden md:flex w-12 h-12 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              <Layout className="w-5 h-5" />
+              <span className="font-semibold">For Manual Traders</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('algo')}
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
+                activeTab === 'algo'
+                  ? 'bg-primary text-white shadow-lg'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
             >
-              <ChevronRight className="w-6 h-6 text-gray-600" />
-            </motion.button>
-          </div>
-
-          {/* Progress Indicator */}
-          <div className="flex justify-center gap-2 mt-8">
-            {features.map((_, index) => (
-              <motion.button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`h-1 rounded-full ${
-                  index === activeIndex ? 'w-12 bg-gradient-to-r from-purple-600 to-indigo-600' : 'w-8 bg-gray-300'
-                }`}
-                animate={{ width: index === activeIndex ? 48 : 32 }}
-              />
-            ))}
+              <Bot className="w-5 h-5" />
+              <span className="font-semibold">For Algo Traders</span>
+            </button>
           </div>
         </div>
+
+        <AnimatePresence mode="wait">
+          {activeTab === 'manual' ? (
+            <motion.div
+              key="manual"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.4 }}
+              className="grid lg:grid-cols-2 gap-12 items-center"
+            >
+              <div className="order-2 lg:order-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
+                  AI Trading Planner
+                </div>
+                <h3 className="text-3xl font-bold text-foreground mb-6">
+                  Turn Ideas into Actionable Plans
+                </h3>
+                <ul className="space-y-4 mb-8">
+                  {[
+                    { icon: <Check className="text-accent" />, text: 'Clear entry/exit rules with stop-loss & take-profit' },
+                    { icon: <Shield className="text-accent" />, text: 'Risk management (1% rule, daily loss limit)' },
+                    { icon: <Zap className="text-accent" />, text: 'Psychology checklist to avoid emotional trades' },
+                    { icon: <FileText className="text-accent" />, text: 'Printable PDF for journaling' },
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                      <div className="mt-1">{item.icon}</div>
+                      <span>{item.text}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 h-auto text-lg font-semibold">
+                  Get My Trading Plan
+                </Button>
+              </div>
+              <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-accent/20 blur-[100px] rounded-full group-hover:scale-110 transition-transform" />
+                  <PhoneMockup variant="strategy" className="w-[280px] sm:w-[320px] relative z-10" />
+                </div>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="algo"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+              className="grid lg:grid-cols-2 gap-12 items-center"
+            >
+              <div className="order-1 flex justify-center lg:justify-start">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full group-hover:scale-110 transition-transform" />
+                  <PhoneMockup variant="code" className="w-[280px] sm:w-[320px] relative z-10" />
+                </div>
+              </div>
+              <div className="order-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+                  AI EA Generator
+                </div>
+                <h3 className="text-3xl font-bold text-foreground mb-6">
+                  Skip Coding. Deploy Bots Instantly.
+                </h3>
+                <ul className="space-y-4 mb-8">
+                  {[
+                    { icon: <Code2 className="text-primary" />, text: 'MQL4, MQL5, Pine Script v5 support' },
+                    { icon: <TrendingUp className="text-primary" />, text: 'One-click download (.mq4, .mq5, .pine)' },
+                    { icon: <LineChart className="text-primary" />, text: 'Backtesting preview (Elite only)' },
+                    { icon: <Zap className="text-primary" />, text: 'Code converter (Elite only)' },
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                      <div className="mt-1">{item.icon}</div>
+                      <span>{item.text}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 h-auto text-lg font-semibold">
+                  Generate My EA
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
-  );
-}
-
-function FeatureCard({ feature, index, isActive, onClick }: { 
-  feature: typeof features[0]; 
-  index: number; 
-  isActive: boolean;
-  onClick: () => void;
-}) {
-  const Icon = feature.icon;
-
-  return (
-    <motion.div
-      onClick={onClick}
-      className="bg-white rounded-3xl p-8 shadow-lg text-center cursor-pointer"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      viewport={{ once: true }}
-      whileHover={{
-        y: -10,
-        scale: 1.05,
-        boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-      }}
-      animate={{
-        scale: isActive ? 1.05 : 1,
-        y: isActive ? -10 : 0,
-        borderColor: isActive ? '#8b5cf6' : 'transparent',
-      }}
-      style={{
-        borderWidth: 2,
-        borderStyle: 'solid',
-      }}
-    >
-      <motion.div
-        className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center"
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Icon className="w-10 h-10 text-purple-600" />
-      </motion.div>
-      
-      <h3 className="text-gray-800 mb-4">{feature.title}</h3>
-      <p className="text-gray-600">{feature.description}</p>
-    </motion.div>
   );
 }

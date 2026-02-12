@@ -4,8 +4,13 @@ import { StatsSection } from './components/StatsSection';
 import { FeaturesSection } from './components/FeaturesSection';
 import { HowItWorks } from './components/HowItWorks';
 import { DataManagement } from './components/DataManagement';
+import { SocialProof } from './components/SocialProof';
+import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
-import Pricing from './components/Pricing';
+import { Pricing } from './components/Pricing';
+import PricingPage from './pages/PricingPage';
+import FeaturesPage from './pages/FeaturesPage';
+import WaitlistPage from './pages/WaitlistPage';
 import Examples from './components/Examples';
 import StrategyBuilder from './components/StrategyBuilder';
 import AccountSignup from './components/AccountSignup';
@@ -33,7 +38,7 @@ import Confirmation from './pages/Confirmation';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <main id="main" className="pt-[81px]">
       <Suspense fallback={<div className="px-6 py-10">Loading…</div>}>
@@ -43,15 +48,20 @@ export default function App() {
           element={
             <>
               <Hero />
-              <StatsSection />
-              <FeaturesSection />
               <HowItWorks />
-              <DataManagement />
+              <FeaturesSection />
+              <SocialProof />
+              <StatsSection />
               <Pricing />
-              <section id="documentation" className="py-20 bg-gradient-to-b from-white to-purple-50"></section>
+              <DataManagement />
+              <AppDownloadCTA />
+              <FinalCTA />
             </>
           }
         />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/features" element={<FeaturesPage />} />
+        <Route path="/waitlist" element={<WaitlistPage />} />
         <Route path="/examples" element={<Examples />} />
         <Route path="/builder" element={<StrategyBuilder />} />
         <Route path="/signup" element={<AccountSignup />} />

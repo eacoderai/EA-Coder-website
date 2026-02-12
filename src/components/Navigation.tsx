@@ -10,7 +10,7 @@ export function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const items = ['Features', 'How it Works', 'Pricing', 'Documentation'];
+  const items = ['Features', 'Pricing', 'Blog', 'Contact'];
 
   // Handle hash scrolling after navigation
   useEffect(() => {
@@ -29,17 +29,37 @@ export function Navigation() {
   const handleLinkClick = (e: React.MouseEvent, slug: string) => {
     e.preventDefault();
     
+    if (slug === 'features') {
+      navigate('/features');
+      setMobileOpen(false);
+      return;
+    }
+
+    if (slug === 'pricing') {
+      navigate('/pricing');
+      setMobileOpen(false);
+      return;
+    }
+
+    if (slug === 'blog') {
+      // Handle blog link separately
+      return;
+    }
+
+    if (slug === 'contact') {
+      navigate('/contact');
+      setMobileOpen(false);
+      return;
+    }
+
     if (location.pathname === '/') {
-      // If on home page, smooth scroll to section
       const element = document.getElementById(slug);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       } else {
-        // Fallback if element not found (e.g., loaded dynamically)
         window.location.hash = slug;
       }
     } else {
-      // If on another page, navigate to home with hash
       navigate(`/#${slug}`);
     }
     
@@ -47,7 +67,7 @@ export function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <motion.div
@@ -56,8 +76,8 @@ export function Navigation() {
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => navigate('/')}
         >
-          <img src={logo} alt="EA Coder" className="h-12" />
-          <span className="text-xl text-gray-800">EA Coder</span>
+          <img src={logo} alt="EA Coder" className="h-10" />
+          <span className="text-xl font-bold text-foreground">EA Coder</span>
         </motion.div>
         
         <div className="hidden md:flex items-center gap-8">
@@ -74,7 +94,7 @@ export function Navigation() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer"
+                className="text-muted-foreground hover:text-primary transition-colors cursor-pointer text-sm font-medium"
               >
                 {item}
               </motion.a>
@@ -88,7 +108,7 @@ export function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             className="hidden md:block"
           >
-            <Button variant="ghost" className="rounded-full" onClick={() => navigate('/login')}>
+            <Button variant="ghost" className="rounded-full text-foreground hover:bg-white/10" onClick={() => navigate('/waitlist')}>
               Sign In
             </Button>
           </motion.div>
@@ -98,8 +118,8 @@ export function Navigation() {
             transition={{ delay: 0.1 }}
           >
             <Button 
-              className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-full px-6"
-              onClick={() => navigate('/signup')}
+              className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
+              onClick={() => navigate('/waitlist')}
             >
               Get Started
             </Button>
@@ -110,7 +130,7 @@ export function Navigation() {
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
-            <Menu className="w-6 h-6 text-gray-600" />
+            <Menu className="w-6 h-6 text-foreground" />
           </button>
         </div>
       </div>
@@ -122,21 +142,31 @@ export function Navigation() {
           exit={{ opacity: 0, y: -10 }}
           className="md:hidden px-6 pb-4"
         >
-          <div className="mt-2 rounded-2xl border border-gray-200 bg-white shadow-lg overflow-hidden">
-            <div className="flex flex-col divide-y divide-gray-100">
+          <div className="mt-2 rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
+            <div className="flex flex-col divide-y divide-border">
               {items.map((item) => {
                 const slug = item.toLowerCase().trim().replace(/\s+/g, '-');
                 return (
                   <a
                     key={item}
                     href={`#${slug}`}
-                    className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-purple-600"
+                    className="px-4 py-3 text-foreground hover:bg-white/5 hover:text-primary transition-colors"
                     onClick={(e) => handleLinkClick(e, slug)}
                   >
                     {item}
                   </a>
                 );
               })}
+              <a
+                href="/waitlist"
+                className="px-4 py-3 text-foreground hover:bg-white/5 hover:text-primary transition-colors"
+                onClick={() => {
+                  navigate('/waitlist');
+                  setMobileOpen(false);
+                }}
+              >
+                Sign In
+              </a>
             </div>
           </div>
         </motion.div>

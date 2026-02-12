@@ -1,142 +1,87 @@
 import { motion } from 'motion/react';
-import { PhoneMockup } from './PhoneMockup';
-import { FileText, Zap, Download, Apple } from 'lucide-react';
-import { Button } from './ui/button';
+import { MessageSquareText, Zap, Rocket } from 'lucide-react';
 
 const steps = [
   {
-    icon: FileText,
-    title: 'Describe Your Strategy',
-    description: 'Simply explain your trading idea in plain English. Define entry/exit rules, risk management, and instruments.',
+    icon: <MessageSquareText className="w-8 h-8" />,
+    title: 'Describe',
+    description: 'Type your strategy in plain English. No complicated syntax or code required.',
+    color: 'var(--primary)',
   },
   {
-    icon: Zap,
-    title: 'AI Generates Code',
-    description: 'Our advanced EACoder AI converts your strategy into clean, production-ready code in under 15 seconds.',
+    icon: <Zap className="w-8 h-8" />,
+    title: 'Generate',
+    description: 'AI creates your professional trading plan or production-ready code in seconds.',
+    color: 'var(--accent)',
   },
   {
-    icon: Download,
-    title: 'Deploy & Trade',
-    description: 'Download your Expert Advisor, test on demo, and deploy to MetaTrader or TradingView when ready.',
-  },
-  {icon: FileText,
-    title: 'Weekly strategy anaylsis update',
-    description: 'Get weekly updates and improvement suggestions on your trading strategy and advance your trading style.',
+    icon: <Rocket className="w-8 h-8" />,
+    title: 'Execute',
+    description: 'Trade manually with discipline using your plan or deploy your automated bot instantly.',
+    color: '#f59e0b',
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-gray-800 mb-4">How EA Coder Works</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            From idea to execution in three simple steps. No programming knowledge required.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Phone Mockup */}
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+    <section id="how-it-works" className="py-24 bg-card relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative flex justify-center lg:justify-start"
+            className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
           >
-            {/* Decorative Circle Pattern */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              {[...Array(3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute rounded-full border border-purple-200"
-                  style={{
-                    width: `${300 + i * 100}px`,
-                    height: `${300 + i * 100}px`,
-                  }}
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.3, 0.1, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    delay: i * 0.5,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                />
-              ))}
-            </div>
-            
-            <PhoneMockup variant="code" className="w-[320px] relative z-10" />
-          </motion.div>
+            How It Works
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-muted-foreground max-w-2xl mx-auto"
+          >
+            Turn your trading ideas into reality in three simple steps.
+          </motion.p>
+        </div>
 
-          {/* Right - Steps */}
-          <div className="space-y-8">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                className="flex gap-6"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-              >
-                {/* Icon */}
-                <motion.div
-                  className="flex-shrink-0"
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg relative">
-                    <step.icon className="w-8 h-8 text-white" />
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md">
-                      <span className="text-xs text-purple-600">{index + 1}</span>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <h3 className="text-gray-800 mb-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
-                </div>
-
-                {/* Connecting Line */}
-                {index < steps.length - 1 && (
-                  <div className="absolute left-8 mt-20 w-0.5 h-12 bg-gradient-to-b from-purple-300 to-transparent" />
-                )}
-              </motion.div>
-            ))}
-
-            {/* CTA Buttons */}
+        <div className="grid md:grid-cols-3 gap-12 relative">
+          {/* Connector lines (Desktop) */}
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-border -translate-y-1/2 z-0" />
+          
+          {steps.map((step, index) => (
             <motion.div
-              className="flex flex-wrap gap-4 pt-8"
-              initial={{ opacity: 0, y: 30 }}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: index * 0.2 }}
+              className="relative z-10 flex flex-col items-center text-center"
             >
-              <Button className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-full px-6 flex items-center gap-2">
-                <Apple className="w-5 h-5" />
-                <a href="http://localhost:3001">Download for iOS</a>
-              </Button>
-              <Button variant="outline" className="rounded-full px-6 border-2 hover:bg-gray-50 flex items-center gap-2">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                </svg>
-
-                <a href="http://localhost:3001/">Download for Android</a>             
-              </Button>
+              <div 
+                className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 shadow-lg border border-border"
+                style={{ 
+                  backgroundColor: 'var(--background)',
+                  color: step.color 
+                }}
+              >
+                {step.icon}
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">
+                {index + 1}. {step.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {step.description}
+              </p>
             </motion.div>
-          </div>
+          ))}
         </div>
+      </div>
+      
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary rounded-full blur-[120px]" />
       </div>
     </section>
   );
