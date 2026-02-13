@@ -27,7 +27,7 @@ export function Footer() {
                 { icon: Twitter, href: 'https://x.com/eacoderai?s=21', label: 'Twitter' },
                 { icon: SiTiktok, href: 'https://www.tiktok.com/@eacoderai?_r=1&_t=ZS-91V505QFOVU', label: 'TikTok' },
                 { icon: Instagram, href: 'https://www.instagram.com/eacoderai?igsh=dW1scWN2eHBuaDBl', label: 'Instagram' },                
-                { icon: Youtube, href: 'https://youtube.com/@eacoderai', label: 'YouTube' },
+                { icon: Youtube, href: 'https://www.youtube.com/@EACoderAI', label: 'YouTube' },
               ].map((social, index) => (
                 <motion.a
                   key={index}
