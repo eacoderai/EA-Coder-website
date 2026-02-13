@@ -2,15 +2,35 @@ import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { Menu } from 'lucide-react';
 import logo from '../assets/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
   const items = ['Home', 'Features', 'Pricing', 'Contact'];
+
+  // Close mobile menu on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setMobileOpen(false);
+      }
+    };
+
+    if (mobileOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileOpen]);
 
   // Handle hash scrolling after navigation
   useEffect(() => {
@@ -76,7 +96,7 @@ export function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <motion.div
