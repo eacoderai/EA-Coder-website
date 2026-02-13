@@ -17,10 +17,10 @@ export default function FeaturesPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl sm:text-6xl font-bold text-foreground mb-6"
           >
-            Built for <span className="text-primary">Performance.</span> Designed for <span className="text-accent">Discipline.</span>
+            Everything you need with <span className="text-primary">EACoder AI</span>
           </motion.h1>
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto">
-            EA Coder combines advanced AI with proven trading frameworks to help you trade like a professional, whether you're clicking buttons or running bots.
+            EACoder AI combines advanced AI with proven trading frameworks to help you trade like a professional, whether you're clicking buttons or running bots.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function FeaturesPage() {
                 Turn Vague Ideas into <span className="text-primary">Actionable Rules</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Most traders fail because they lack a clear plan. EA Coder takes your strategy description and builds a professional-grade trading document in seconds.
+                Most traders fail because they lack a clear plan. EACoder AI takes your strategy description and builds a professional-grade trading document in seconds.
               </p>
               
               <div className="space-y-6 mb-10">

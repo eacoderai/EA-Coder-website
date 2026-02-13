@@ -52,8 +52,8 @@ export function Footer() {
               className="mb-6 flex items-center gap-3"
               whileHover={{ scale: 1.02 }}
             >
-              <img src={logo} alt="EA Coder" className="h-10" />
-              <span className="text-2xl font-bold text-foreground">EA Coder</span>
+              <img src={logo} alt="EACoder AI" className="h-10" />
+              <span className="text-2xl font-bold text-foreground">EACoder AI</span>
             </motion.div>
             <p className="text-muted-foreground text-sm mb-6 max-w-sm">
               Your AI Trading Assistant. Turn trading ideas into action with professional manual plans or production-ready automated bots.

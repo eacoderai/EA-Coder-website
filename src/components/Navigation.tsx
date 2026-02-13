@@ -105,8 +105,8 @@ export function Navigation() {
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => navigate('/')}
         >
-          <img src={logo} alt="EA Coder" className="h-10" />
-          <span className="text-xl font-bold text-foreground">EA Coder</span>
+          <img src={logo} alt="EACoder AI" className="h-10" />
+          <span className="text-xl font-bold text-foreground">EACoder AI</span>
         </motion.div>
         
         <div className="hidden md:flex items-center gap-8">

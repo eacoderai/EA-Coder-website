@@ -47,7 +47,7 @@ const comparisonData = [
 const faqs = [
   {
     question: "Do I need coding skills?",
-    answer: "No! EA Coder is designed for everyone. You describe your trading idea in plain English, and our AI handles the rest—whether it's a structured manual plan or complex MQL/Pine Script code."
+    answer: "No! EACoder AI is designed for everyone. You describe your trading idea in plain English, and our AI handles the rest—whether it's a structured manual plan or complex MQL/Pine Script code."
   },
   {
     question: "Can I switch from manual to automated later?",

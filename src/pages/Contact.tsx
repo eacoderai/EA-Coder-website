@@ -4,7 +4,7 @@ import DocLayout from '@/components/docs/DocLayout';
 export default function Contact() {
   return (
     <>
-      <Seo title="Contact Us | EA Coder" description="Contact EA Coder support and business inquiries." />
+      <Seo title="Contact Us | EACoder AI" description="Contact EACoder AI support and business inquiries." />
       <DocLayout title="Contact Us" subtitle="We are here to help">
         <div className="rounded-xl border bg-card px-6 py-6">
           <h4 className="mb-2">Support</h4>

@@ -20,7 +20,7 @@ export function FeaturesSection() {
             One AI Engine. <span className="text-primary">Two Ways to Trade.</span>
           </motion.h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Whether you prefer the discipline of manual trading or the scale of automation, EA Coder has you covered.
+            Whether you prefer the discipline of manual trading or the scale of automation, EACoder AI has you covered.
           </p>
         </div>
 
