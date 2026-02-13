@@ -106,15 +106,6 @@ export function Navigation() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="hidden md:block"
-          >
-            <Button variant="ghost" className="rounded-full text-foreground hover:bg-white/10" onClick={() => navigate('/waitlist')}>
-              Sign In
-            </Button>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
           >
             <Button 
@@ -157,16 +148,6 @@ export function Navigation() {
                   </a>
                 );
               })}
-              <a
-                href="/waitlist"
-                className="px-4 py-3 text-foreground hover:bg-white/5 hover:text-primary transition-colors"
-                onClick={() => {
-                  navigate('/waitlist');
-                  setMobileOpen(false);
-                }}
-              >
-                Sign In
-              </a>
             </div>
           </div>
         </motion.div>
