@@ -23,7 +23,7 @@ function ResourcesListExample() {
 export default function ResourcesListDocs() {
   return (
     <>
-      <Seo title="Resources List | EA Coder" description="Documentation for the Resources footer list including showcase, API, usage, accessibility, responsive testing, and performance." />
+      <Seo title="Resources List | EACoder AI" description="Documentation for the Resources footer list including showcase, API, usage, accessibility, responsive testing, and performance." />
       <DocLayout title="Resources List" subtitle="Footer list component docs">
         <div className="rounded-xl border bg-card">
           <div className="px-6 pt-6"><h4>Component Showcase</h4></div>

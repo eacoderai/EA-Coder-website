@@ -23,7 +23,7 @@ function LegalExample() {
 export default function LegalLanding() {
   return (
     <>
-      <Seo title="Legal | EA Coder" description="Legal showcase, API, usage, accessibility, responsive tests, and performance for EA Coder." />
+      <Seo title="Legal | EACoder AI" description="Legal showcase, API, usage, accessibility, responsive tests, and performance for EACoder AI." />
       <DocLayout title="Legal" subtitle="Showcase and documentation">
         <div className="rounded-xl border bg-card">
           <div className="px-6 pt-6"><h4>Showcase</h4></div>

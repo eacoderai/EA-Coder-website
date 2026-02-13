@@ -23,7 +23,7 @@ function LegalListExample() {
 export default function LegalListDocs() {
   return (
     <>
-      <Seo title="Legal List | EA Coder" description="Documentation for the Legal footer list including showcase, API, usage, accessibility, responsive testing, and performance." />
+      <Seo title="Legal List | EACoder AI" description="Documentation for the Legal footer list including showcase, API, usage, accessibility, responsive testing, and performance." />
       <DocLayout title="Legal List" subtitle="Footer list component docs">
         <div className="rounded-xl border bg-card">
           <div className="px-6 pt-6"><h4>Component Showcase</h4></div>

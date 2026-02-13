@@ -4,7 +4,7 @@ import DocLayout from '@/components/docs/DocLayout';
 export default function Privacy() {
   return (
     <>
-      <Seo title="Privacy Policy | EA Coder" description="Privacy practices and data handling for EA Coder." />
+      <Seo title="Privacy Policy | EACoder AI" description="Privacy practices and data handling for EACoder AI." />
       <DocLayout title="Privacy Policy" subtitle="How we handle your data">
         <div className="rounded-xl border bg-card px-6 py-6">
           <h4 className="mb-2">Introduction</h4>

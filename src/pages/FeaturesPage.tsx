@@ -222,7 +222,7 @@ export default function FeaturesPage() {
         {/* Demo Section */}
         <div className="mt-32">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">See EA Coder in Action</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">See EACoder AI in Action</h2>
             <p className="text-muted-foreground">Watch how easily you can go from an idea to a trade-ready strategy.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">

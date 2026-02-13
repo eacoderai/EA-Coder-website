@@ -35,6 +35,7 @@ import Cookies from './pages/Cookies';
 import Disclaimer from './pages/Disclaimer';
 import Contact from './pages/Contact';
 import Confirmation from './pages/Confirmation';
+import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
@@ -86,6 +87,7 @@ export default function App() {
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </Suspense>
       </main>

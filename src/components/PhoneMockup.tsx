@@ -158,7 +158,7 @@ function CodeGenerationScreen() {
       >
         <div className="space-y-2 text-xs font-mono">
           <div className="text-purple-400">//+------------------------------------------------------------------+</div>
-          <div className="text-green-400">#property copyright "EA Coder"</div>
+          <div className="text-green-400">#property copyright "EACoder AI"</div>
           <div className="text-green-400">#property version   "1.00"</div>
           <div className="text-purple-400">//+------------------------------------------------------------------+</div>
           <div className="text-blue-400">input double <span className="text-white">Lots</span> = 0.1;</div>
@@ -241,7 +241,7 @@ function ChatScreen() {
               <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center">
                 <Code2 className="w-3 h-3 text-white" />
               </div>
-              <span className="text-xs text-gray-500">EA Coder AI</span>
+              <span className="text-xs text-gray-500">EACoder AI</span>
             </div>
             <p className="text-sm text-gray-700">I've updated your code with a trailing stop. The EA will now adjust stops as price moves in your favor.</p>
           </div>
