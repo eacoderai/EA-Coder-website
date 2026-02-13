@@ -4,7 +4,6 @@ import { Input } from '../components/ui/input';
 import { useState } from 'react';
 import { CheckCircle2, Sparkles, Smartphone, ArrowRight } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
-import { Footer } from '../components/Footer';
 
 export default function WaitlistPage() {
   const [email, setEmail] = useState('');
@@ -140,8 +139,6 @@ export default function WaitlistPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
