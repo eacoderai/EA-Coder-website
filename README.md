@@ -1,7 +1,7 @@
 
-  # 3D Motion Website for EACODER
+  # EACoder AI Website
 
-  This is a code bundle for 3D Motion Website for EACODER. The original project is available at https://www.figma.com/design/F0sUX0ApS8Xuf36vCtpvyK/3D-Motion-Website-for-EACODER.
+This is the official website for EACoder AI, an AI-powered platform for generating trading bots and professional trading plans.
 
   ## Running the code
 
