@@ -8,11 +8,36 @@ import { Navigation } from '../components/Navigation';
 export default function WaitlistPage() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setSubmitted(true);
+    if (!email) return;
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://formspree.io/f/xreapqvd', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          source: 'Waitlist Page'
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        // Fallback or error handling
+        console.error('Submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -43,15 +68,21 @@ export default function WaitlistPage() {
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
                   <Input
+                    name="email"
                     type="email"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    disabled={isSubmitting}
                     className="h-12 bg-card border-border text-foreground rounded-xl flex-grow"
                   />
-                  <Button type="submit" className="h-12 px-8 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold">
-                    Join Waitlist
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="h-12 px-8 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold"
+                  >
+                    {isSubmitting ? 'Joining...' : 'Join Waitlist'}
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </form>

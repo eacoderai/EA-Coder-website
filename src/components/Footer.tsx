@@ -1,10 +1,46 @@
 import { motion } from 'motion/react';
-import { Twitter, Instagram, ShieldCheck, Youtube } from 'lucide-react';
+import { Twitter, Instagram, ShieldCheck, Youtube, Loader2 } from 'lucide-react';
 import { SiTiktok } from '@icons-pack/react-simple-icons';
-import logo from 'figma:asset/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
+import logo from '../assets/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
+import { useState } from 'react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus('loading');
+    try {
+      const response = await fetch('https://formspree.io/f/xreapqvd', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          source: 'Newsletter Footer'
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+        setTimeout(() => setStatus('idle'), 3000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 3000);
+      }
+    } catch (error) {
+      console.error('Newsletter error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
+  };
 
   return (
     <footer className="bg-background border-t border-border text-foreground py-16">
@@ -72,16 +108,28 @@ export function Footer() {
             <div>
               <h4 className="font-bold mb-6">Newsletter</h4>
               <p className="text-muted-foreground text-xs mb-4">Get trading tips and product updates.</p>
-              <div className="flex gap-2">
+              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
                 <input 
                   type="email" 
+                  name="email"
                   placeholder="Email" 
-                  className="bg-card border border-border rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus:border-primary transition-colors"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={status === 'loading'}
+                  className="bg-card border border-border rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
+                  required
                 />
-                <button className="bg-primary text-white rounded-lg px-3 py-2 text-sm font-bold hover:bg-primary/90 transition-colors">
-                  Join
+                <button 
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="bg-primary text-white rounded-lg px-3 py-2 text-sm font-bold hover:bg-primary/90 transition-colors disabled:opacity-50 min-w-[60px] flex items-center justify-center"
+                >
+                  {status === 'loading' ? <Loader2 className="w-4 h-4 animate-spin" /> : status === 'success' ? 'Joined!' : 'Join'}
                 </button>
-              </div>
+              </form>
+              {status === 'error' && (
+                <p className="text-red-500 text-[10px] mt-2">Something went wrong. Try again.</p>
+              )}
             </div>
             <div>
               <h4 className="font-bold mb-4">Legal</h4>
