@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { PhoneMockup } from './PhoneMockup';
 import { Check, Layout, Bot, FileText, Shield, Zap, TrendingUp, Code2, LineChart } from 'lucide-react';
 
 export function FeaturesSection() {
   const [activeTab, setActiveTab] = useState<'manual' | 'algo'>('manual');
+  const navigate = useNavigate();
 
   return (
     <section id="features" className="py-24 bg-background relative overflow-hidden">
@@ -82,7 +84,10 @@ export function FeaturesSection() {
                     </li>
                   ))}
                 </ul>
-                <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 h-auto text-lg font-semibold">
+                <Button 
+                  onClick={() => navigate('/waitlist')}
+                  className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 h-auto text-lg font-semibold"
+                >
                   Get My Trading Plan
                 </Button>
               </div>
@@ -128,7 +133,10 @@ export function FeaturesSection() {
                     </li>
                   ))}
                 </ul>
-                <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 h-auto text-lg font-semibold">
+                <Button 
+                  onClick={() => navigate('/waitlist')}
+                  className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 h-auto text-lg font-semibold"
+                >
                   Generate My EA
                 </Button>
               </div>
