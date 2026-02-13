@@ -62,7 +62,7 @@ export default function WaitlistPage() {
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8">
-                Join 5,000+ traders on the waitlist. Be the first to know when we launch and get an exclusive 50% discount on your first Pro month.
+                Join 5,000+ traders on the waitlist. Be the first to know when we launch and get an exclusive 30% discount on your first Pro month.
               </p>
 
               {!submitted ? (

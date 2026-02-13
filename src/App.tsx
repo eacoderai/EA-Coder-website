@@ -8,7 +8,6 @@ import { SocialProof } from './components/SocialProof';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { Pricing } from './components/Pricing';
-import ScrollToTop from './components/ScrollToTop';
 import PricingPage from './pages/PricingPage';
 import FeaturesPage from './pages/FeaturesPage';
 import WaitlistPage from './pages/WaitlistPage';
@@ -36,6 +35,7 @@ import Cookies from './pages/Cookies';
 import Disclaimer from './pages/Disclaimer';
 import Contact from './pages/Contact';
 import Confirmation from './pages/Confirmation';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   return (
