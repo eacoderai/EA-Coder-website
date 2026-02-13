@@ -10,10 +10,14 @@ export function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const items = ['Features', 'Pricing', 'Blog', 'Contact'];
+  const items = ['Home', 'Features', 'Pricing', 'Contact'];
 
   // Handle hash scrolling after navigation
   useEffect(() => {
+    if (location.pathname === '/' && !location.hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     if (location.pathname === '/' && location.hash) {
       const id = location.hash.replace('#', '');
       const element = document.getElementById(id);
@@ -29,6 +33,16 @@ export function Navigation() {
   const handleLinkClick = (e: React.MouseEvent, slug: string) => {
     e.preventDefault();
     
+    if (slug === 'home') {
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
+      setMobileOpen(false);
+      return;
+    }
+
     if (slug === 'features') {
       navigate('/features');
       setMobileOpen(false);
@@ -38,11 +52,6 @@ export function Navigation() {
     if (slug === 'pricing') {
       navigate('/pricing');
       setMobileOpen(false);
-      return;
-    }
-
-    if (slug === 'blog') {
-      // Handle blog link separately
       return;
     }
 
