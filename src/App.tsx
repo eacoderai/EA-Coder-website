@@ -8,6 +8,7 @@ import { SocialProof } from './components/SocialProof';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { Pricing } from './components/Pricing';
+import ScrollToTop from './components/ScrollToTop';
 import PricingPage from './pages/PricingPage';
 import FeaturesPage from './pages/FeaturesPage';
 import WaitlistPage from './pages/WaitlistPage';
@@ -39,6 +40,7 @@ import Confirmation from './pages/Confirmation';
 export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <ScrollToTop />
       <Navigation />
       <main id="main" className="pt-[81px]">
       <Suspense fallback={<div className="px-6 py-10">Loading…</div>}>
