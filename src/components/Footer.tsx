@@ -51,6 +51,7 @@ export function Footer() {
                 { label: 'Features', href: '/features' },
                 { label: 'Pricing', href: '/pricing' },
                 { label: 'Blog', href: '#' },
+                { label: 'FAQ', href: '/faq' },
                 { label: 'Contact', href: '/contact' },
               ].map((item) => (
                 <li key={item.label}>
