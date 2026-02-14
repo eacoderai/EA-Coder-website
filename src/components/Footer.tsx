@@ -3,6 +3,7 @@ import { Twitter, Instagram, ShieldCheck, Youtube, Loader2 } from 'lucide-react'
 import { SiTiktok } from '@icons-pack/react-simple-icons';
 import logo from '../assets/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
 import { useState } from 'react';
+import { enqueue, submitNow } from '../utils/submissionQueue';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,32 +15,12 @@ export function Footer() {
     if (!email) return;
 
     setStatus('loading');
-    try {
-      const response = await fetch('https://formspree.io/f/xreapqvd', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          source: 'Newsletter Footer'
-        })
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setEmail('');
-        setTimeout(() => setStatus('idle'), 3000);
-      } else {
-        setStatus('error');
-        setTimeout(() => setStatus('idle'), 3000);
-      }
-    } catch (error) {
-      console.error('Newsletter error:', error);
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
-    }
+    const payload = { email, source: 'Newsletter Footer' };
+    const ok = await submitNow(payload);
+    if (!ok) enqueue(payload);
+    setStatus('success');
+    setEmail('');
+    setTimeout(() => setStatus('idle'), 3000);
   };
 
   return (

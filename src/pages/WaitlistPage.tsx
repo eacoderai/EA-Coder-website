@@ -4,6 +4,7 @@ import { Input } from '../components/ui/input';
 import { useState } from 'react';
 import { CheckCircle2, Sparkles, Smartphone, ArrowRight } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
+import { enqueue, submitNow } from '../utils/submissionQueue';
 
 export default function WaitlistPage() {
   const [email, setEmail] = useState('');
@@ -15,30 +16,11 @@ export default function WaitlistPage() {
     if (!email) return;
 
     setIsSubmitting(true);
-    try {
-      const response = await fetch('https://formspree.io/f/xreapqvd', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          source: 'Waitlist Page'
-        })
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        // Fallback or error handling
-        console.error('Submission failed');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    const payload = { email, source: 'Waitlist Page' };
+    const ok = await submitNow(payload);
+    if (!ok) enqueue(payload);
+    setSubmitted(true);
+    setIsSubmitting(false);
   };
 
   return (

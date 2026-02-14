@@ -16,7 +16,7 @@ import StrategyBuilder from './components/StrategyBuilder';
 import AccountSignup from './components/AccountSignup';
 import AppDownloadCTA from './components/AppDownloadCTA';
 import { Routes, Route } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import ProductLanding from './pages/ProductLanding';
 import ResourcesLanding from './pages/ResourcesLanding';
 import LegalLanding from './pages/LegalLanding';
@@ -37,8 +37,13 @@ import Contact from './pages/Contact';
 import Confirmation from './pages/Confirmation';
 import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
+import { flushQueue, setupOnlineFlush } from './utils/submissionQueue';
 
 export default function App() {
+  useEffect(() => {
+    flushQueue();
+    setupOnlineFlush();
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScrollToTop />
