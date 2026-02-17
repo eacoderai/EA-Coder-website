@@ -1,4 +1,5 @@
-const ENDPOINT = 'https://formspree.io/f/xreapqvd';
+const FORM_ENDPOINT = 'https://formspree.io/f/xreapqvd';
+const API_ENDPOINT = '/api/waitlist';
 const KEY = 'eac_submission_queue_v1';
 
 type Payload = {
@@ -30,7 +31,21 @@ function writeQueue(items: Payload[]) {
 
 export async function submitNow(payload: Payload): Promise<boolean> {
   try {
-    const res = await fetch(ENDPOINT, {
+    // Try serverless API first (sends Zoho confirmation + forwards record)
+    const apiRes = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+    if (apiRes.ok) return true;
+  } catch {
+    // ignore and fall back
+  }
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,4 +84,3 @@ export function setupOnlineFlush() {
     flushQueue();
   });
 }
-
