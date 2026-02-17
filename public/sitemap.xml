@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://eacoderai.xyz</loc>
+    <loc>https://eacoderai.xyz/</loc>
     <lastmod>2026-02-16</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://eacoderai.xyz/pricing</loc>
+    <loc>https://eacoderai.xyz/pricing/</loc>
     <lastmod>2026-02-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eacoderai.xyz/features</loc>
+    <loc>https://eacoderai.xyz/features/</loc>
     <lastmod>2026-02-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eacoderai.xyz/waitlist</loc>
+    <loc>https://eacoderai.xyz/waitlist/</loc>
     <lastmod>2026-02-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://eacoderai.xyz/faq</loc>
+    <loc>https://eacoderai.xyz/faq/</loc>
     <lastmod>2026-02-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eacoderai.xyz/contact</loc>
+    <loc>https://eacoderai.xyz/contact/</loc>
     <lastmod>2026-02-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eacoderai.xyz/docs</loc>
+    <loc>https://eacoderai.xyz/docs/</loc>
     <lastmod>2026-02-16</lastmod>
     <priority>0.7</priority>
   </url>
