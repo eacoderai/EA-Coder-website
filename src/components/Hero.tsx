@@ -3,12 +3,18 @@ import { Button } from './ui/button';
 import { useNavigate } from 'react-router-dom';
 import { PhoneMockup } from './PhoneMockup';
 import { Check, Sparkles, Zap, Bot, Layout } from 'lucide-react';
+import Seo from './docs/Seo';
 
 export function Hero() {
   const navigate = useNavigate();
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
+      <Seo
+        title="EA Coder: AI Trading Plans & Automated EAs | Free Trial"
+        description="Turn trading ideas into action. Get a manual plan or automated bot. Free to start."
+        keywords="trading plan generator, AI trade journal, MQL5 AI generator, no-code trading bot"
+      />
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <motion.div

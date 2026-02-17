@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react';
 import logo from '../assets/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -11,7 +12,7 @@ export function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const items = ['Home', 'Features', 'Pricing', 'Contact'];
+  const items = ['Home', 'Pricing', 'Contact'];
 
   // Close mobile menu on click outside
   useEffect(() => {
@@ -110,11 +111,27 @@ export function Navigation() {
         </motion.div>
         
         <div className="hidden md:flex items-center gap-8">
+          <motion.a
+            href="#home"
+            onClick={(e) => handleLinkClick(e, 'home')}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-muted-foreground hover:text-primary transition-colors cursor-pointer text-sm font-medium"
+          >
+            Home
+          </motion.a>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-muted-foreground hover:text-primary text-sm font-medium">
+              Features
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-card border-border">
+              <DropdownMenuItem onClick={() => navigate('/features#planner')}>Trading Planner</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate('/features#generator')}>EA Generator</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate('/features#journal-analyzer')}>Journal Analyzer</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           {items.map((item, index) => {
-            const slug = item
-              .toLowerCase()
-              .trim()
-              .replace(/\s+/g, '-');
+            const slug = item.toLowerCase().trim().replace(/\s+/g, '-');
             return (
               <motion.a
                 key={item}
@@ -122,7 +139,7 @@ export function Navigation() {
                 onClick={(e) => handleLinkClick(e, slug)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: (index + 1) * 0.1 }}
                 className="text-muted-foreground hover:text-primary transition-colors cursor-pointer text-sm font-medium"
               >
                 {item}
@@ -164,6 +181,27 @@ export function Navigation() {
         >
           <div className="mt-2 rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
             <div className="flex flex-col divide-y divide-border">
+              <a
+                href="#home"
+                className="px-4 py-3 text-foreground hover:bg-white/5 hover:text-primary transition-colors"
+                onClick={(e) => handleLinkClick(e, 'home')}
+              >
+                Home
+              </a>
+              <div className="px-4 py-3">
+                <div className="text-muted-foreground text-xs mb-2">Features</div>
+                <div className="flex flex-col gap-2">
+                  <button className="text-foreground text-left hover:text-primary" onClick={() => { navigate('/features#planner'); setMobileOpen(false); }}>
+                    Trading Planner
+                  </button>
+                  <button className="text-foreground text-left hover:text-primary" onClick={() => { navigate('/features#generator'); setMobileOpen(false); }}>
+                    EA Generator
+                  </button>
+                  <button className="text-foreground text-left hover:text-primary" onClick={() => { navigate('/features#journal-analyzer'); setMobileOpen(false); }}>
+                    Journal Analyzer
+                  </button>
+                </div>
+              </div>
               {items.map((item) => {
                 const slug = item.toLowerCase().trim().replace(/\s+/g, '-');
                 return (
