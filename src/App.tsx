@@ -58,13 +58,13 @@ export default function App() {
           element={
             <>
               <Hero />
-              <TradingPlannerSection />
-              <JournalAnalyzerSection />
               <HowItWorks />
               <FeaturesSection />
               <SocialProof />
               <StatsSection />
               <Pricing />
+              <TradingPlannerSection />
+              <JournalAnalyzerSection />
               <DataManagement />
               <AppDownloadCTA />
               <FinalCTA />
