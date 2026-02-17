@@ -12,7 +12,7 @@ export function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const items = ['Home', 'Pricing', 'Contact'];
+  const items = ['Pricing', 'Contact'];
 
   // Close mobile menu on click outside
   useEffect(() => {
@@ -35,11 +35,11 @@ export function Navigation() {
 
   // Handle hash scrolling after navigation
   useEffect(() => {
-    if (location.pathname === '/' && !location.hash) {
+    if (!location.hash) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    if (location.pathname === '/' && location.hash) {
+    if (location.hash) {
       const id = location.hash.replace('#', '');
       const element = document.getElementById(id);
       if (element) {
@@ -125,9 +125,33 @@ export function Navigation() {
               Features
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-card border-border">
-              <DropdownMenuItem onClick={() => navigate('/features#planner')}>Trading Planner</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate('/features#generator')}>EA Generator</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate('/features#journal-analyzer')}>Journal Analyzer</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => {
+                if (location.pathname === '/features') {
+                  const el = document.getElementById('planner');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  else window.location.hash = 'planner';
+                } else {
+                  navigate('/features#planner');
+                }
+              }}>Trading Planner</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => {
+                if (location.pathname === '/features') {
+                  const el = document.getElementById('generator');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  else window.location.hash = 'generator';
+                } else {
+                  navigate('/features#generator');
+                }
+              }}>EA Generator</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => {
+                if (location.pathname === '/features') {
+                  const el = document.getElementById('journal-analyzer');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  else window.location.hash = 'journal-analyzer';
+                } else {
+                  navigate('/features#journal-analyzer');
+                }
+              }}>Journal Analyzer</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           {items.map((item, index) => {
