@@ -9,6 +9,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const showNewsletter = false;
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,32 +87,34 @@ export function Footer() {
 
           {/* Legal & Newsletter */}
           <div className="space-y-8">
-            <div>
-              <h4 className="font-bold mb-6">Newsletter</h4>
-              <p className="text-muted-foreground text-xs mb-4">Get trading tips and product updates.</p>
-              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-                <input 
-                  type="email" 
-                  name="email"
-                  placeholder="Email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={status === 'loading'}
-                  className="bg-card border border-border rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
-                  required
-                />
-                <button 
-                  type="submit"
-                  disabled={status === 'loading'}
-                  className="bg-primary text-white rounded-lg px-3 py-2 text-sm font-bold hover:bg-primary/90 transition-colors disabled:opacity-50 min-w-[60px] flex items-center justify-center"
-                >
-                  {status === 'loading' ? <Loader2 className="w-4 h-4 animate-spin" /> : status === 'success' ? 'Joined!' : 'Join'}
-                </button>
-              </form>
-              {status === 'error' && (
-                <p className="text-red-500 text-[10px] mt-2">Something went wrong. Try again.</p>
-              )}
-            </div>
+            {showNewsletter && (
+              <div>
+                <h4 className="font-bold mb-6">Newsletter</h4>
+                <p className="text-muted-foreground text-xs mb-4">Get trading tips and product updates.</p>
+                <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={status === 'loading'}
+                    className="bg-card border border-border rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
+                    required
+                  />
+                  <button 
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="bg-primary text-white rounded-lg px-3 py-2 text-sm font-bold hover:bg-primary/90 transition-colors disabled:opacity-50 min-w-[60px] flex items-center justify-center"
+                  >
+                    {status === 'loading' ? <Loader2 className="w-4 h-4 animate-spin" /> : status === 'success' ? 'Joined!' : 'Join'}
+                  </button>
+                </form>
+                {status === 'error' && (
+                  <p className="text-red-500 text-[10px] mt-2">Something went wrong. Try again.</p>
+                )}
+              </div>
+            )}
             <div>
               <h4 className="font-bold mb-4">Legal</h4>
               <ul className="space-y-2">
