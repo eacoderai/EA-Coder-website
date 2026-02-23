@@ -17,14 +17,14 @@ export default function FeaturesPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl sm:text-6xl font-bold text-foreground mb-6"
           >
-            Everything you need with <span className="text-primary">EACoder AI</span>
+            Everything you need with <span className="text-primary">StratAI</span>
           </motion.h1>
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto">
-            EACoder AI combines advanced AI with proven trading frameworks to help you trade like a professional, whether you're clicking buttons or running bots.
+            StratAI is a universal AI strategy engine. Describe ideas in plain English and generate executable logic or structured plans for trading, crypto, and quantitative strategies.
           </p>
         </div>
 
-        {/* AI Trading Planner Section */}
+        {/* Strategy Planner Section */}
         <div id="planner" className="mb-32">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -34,13 +34,13 @@ export default function FeaturesPage() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
                 <Layout className="w-4 h-4" />
-                AI Trading Planner
+                Strategy Planner
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
                 Turn Vague Ideas into <span className="text-primary">Actionable Rules</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Most traders fail because they lack a clear plan. EACoder AI takes your strategy description and builds a professional-grade trading document in seconds.
+                Most teams fail without clear rules. StratAI takes your description and builds a professional-grade strategy document in seconds.
               </p>
               
               <div className="space-y-6 mb-10">
@@ -84,7 +84,7 @@ export default function FeaturesPage() {
               </div>
 
               <Button size="lg" className="bg-primary hover:bg-primary/90 rounded-xl" onClick={() => navigate('/waitlist')}>
-                Get My Trading Plan
+                Get My Strategy Plan
               </Button>
             </motion.div>
 
@@ -120,7 +120,7 @@ export default function FeaturesPage() {
           </div>
         </div>
 
-        {/* AI EA Generator Section */}
+        {/* Code Engine Section */}
         <div id="generator">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -131,13 +131,13 @@ export default function FeaturesPage() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
                 <Bot className="w-4 h-4" />
-                AI EA Generator
+                Code Engine
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Skip Coding. <span className="text-accent">Deploy Bots Instantly.</span>
+                Generate Strategy Code. <span className="text-accent">Deploy with confidence.</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Generate production-ready code for MetaTrader 4, MetaTrader 5, and TradingView. No more waiting weeks for expensive developers.
+                Generate production-ready code for your platform (MT4, MT5, TradingView). No more waiting weeks for developers.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-10">
@@ -154,7 +154,7 @@ export default function FeaturesPage() {
                 <div className="p-6 rounded-2xl bg-card border border-border">
                   <LineChart className="w-8 h-8 text-accent mb-4" />
                   <h4 className="text-foreground font-bold mb-2">Backtest Ready</h4>
-                  <p className="text-muted-foreground text-sm">Every EA is built to be compatible with built-in strategy testers.</p>
+                  <p className="text-muted-foreground text-sm">Every strategy is compatible with built-in testers.</p>
                 </div>
                 <div className="p-6 rounded-2xl bg-card border border-border">
                   <Download className="w-8 h-8 text-accent mb-4" />
@@ -173,7 +173,7 @@ export default function FeaturesPage() {
               </div>
 
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-white rounded-xl" onClick={() => navigate('/waitlist')}>
-                Generate My EA
+                Generate Strategy Code
               </Button>
             </motion.div>
 
@@ -191,7 +191,7 @@ export default function FeaturesPage() {
           </div>
         </div>
 
-        {/* Journal Analyzer Section */}
+        {/* Performance Auditor Section */}
         <div id="journal-analyzer" className="mt-32">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -200,13 +200,13 @@ export default function FeaturesPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
-                Elite Feature · Journal Analyzer
+                Elite Feature · Performance Auditor
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                AI Trade Journaling with <span className="text-accent">Actionable Insights</span>
+                Performance Auditing with <span className="text-accent">Actionable Insights</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Upload your trade history and get a full breakdown of your edge, leaks, and optimizations — including deviations from your Trading Plan.
+                Upload your execution history and get a breakdown of your edge, leaks, and optimizations — including deviations from your Strategy Plan.
               </p>
 
               <div className="space-y-6 mb-10">
@@ -234,7 +234,7 @@ export default function FeaturesPage() {
                   </div>
                   <div>
                     <h4 className="text-foreground font-bold mb-1">Plan Comparisons</h4>
-                    <p className="text-muted-foreground">See how your trades matched or broke your AI Trading Plan.</p>
+                    <p className="text-muted-foreground">See how execution matched or deviated from your Strategy Plan.</p>
                   </div>
                 </div>
               </div>
@@ -316,7 +316,7 @@ export default function FeaturesPage() {
         {/* Demo Section */}
         <div className="mt-32">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">See EACoder AI in Action</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">See StratAI in Action</h2>
             <p className="text-muted-foreground">Watch how easily you can go from an idea to a trade-ready strategy.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -331,8 +331,8 @@ export default function FeaturesPage() {
               <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Code2 className="w-8 h-8 text-accent" />
               </div>
-              <h4 className="text-foreground font-bold mb-2">EA Generator Demo</h4>
-              <p className="text-muted-foreground text-sm text-center">See a plain-English strategy become a working MQL5 bot.</p>
+              <h4 className="text-foreground font-bold mb-2">Code Engine Demo</h4>
+              <p className="text-muted-foreground text-sm text-center">See a plain-language strategy become executable code.</p>
             </div>
           </div>
         </div>

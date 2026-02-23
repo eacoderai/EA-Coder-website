@@ -9,8 +9,8 @@ const comparisonData = [
     category: "Core Features",
     features: [
       { name: "Monthly Strategies", free: "1", pro: "Up to 10", elite: "Unlimited" },
-      { name: "Trading Planner (Manual)", free: true, pro: true, elite: true },
-      { name: "EA Generator (Algo)", free: true, pro: true, elite: true },
+      { name: "Strategy Planner (Manual)", free: true, pro: true, elite: true },
+      { name: "Code Engine (Algo)", free: true, pro: true, elite: true },
       { name: "Risk Management Tools", free: true, pro: true, elite: true },
       { name: "Psychology Checklist", free: true, pro: true, elite: true },
     ]
@@ -30,7 +30,7 @@ const comparisonData = [
       { name: "Advanced Backtesting + AI Summary", free: false, pro: false, elite: true },
       { name: "Save Strategy Versions", free: false, pro: "Last 3", elite: "Unlimited" },
       { name: "Code Converter (MQL4 to MQL5)", free: false, pro: false, elite: true },
-      { name: "Manual Re-analysis (Journal)", free: false, pro: false, elite: true },
+      { name: "Performance Auditor", free: false, pro: false, elite: true },
       { name: "AI Strategy Recommendations", free: false, pro: false, elite: true },
     ]
   },
@@ -47,19 +47,19 @@ const comparisonData = [
 const faqs = [
   {
     question: "Do I need coding skills?",
-    answer: "No! EACoder AI is designed for everyone. You describe your trading idea in plain English, and our AI handles the rest—whether it's a structured manual plan or complex MQL/Pine Script code."
+    answer: "No! StratAI is designed for everyone. You describe your strategy idea in plain English, and our AI handles the rest—whether it's a structured plan or MQL/Pine Script code."
   },
   {
     question: "Can I switch from manual to automated later?",
-    answer: "Yes! Every strategy you create can be viewed as a manual trading plan or converted into automated code with a single click. Start manual to build discipline, then automate when you're ready."
+    answer: "Yes! Every strategy you create can be a structured plan or converted into executable code with a single click."
   },
   {
     question: "What’s ‘Manual Re-analysis’?",
-    answer: "Elite users can upload their trade journals. Our AI analyzes your actual performance, identifies emotional patterns, and helps you find your statistical edge by suggesting rule adjustments."
+    answer: "Engineer users can upload execution journals. Our AI analyzes performance, patterns, and helps you refine rules."
   },
   {
     question: "Is there a long-term commitment?",
-    answer: "No. Our Pro and Elite plans are month-to-month. You can upgrade, downgrade, or cancel at any time from your account settings."
+    answer: "No. Our Builder and Engineer plans are month-to-month. You can upgrade, downgrade, or cancel at any time."
   }
 ];
 
@@ -127,13 +127,13 @@ export default function PricingPage() {
               <tr>
                 <td className="py-10 px-4"></td>
                 <td className="py-10 px-4 text-center">
-                  <Button variant="outline" className="w-full" onClick={() => navigate('/waitlist')}>Start Free</Button>
+                  <Button variant="outline" className="w-full" onClick={() => navigate('/waitlist')}>Get Starter</Button>
                 </td>
                 <td className="py-10 px-4 text-center bg-primary/5 rounded-b-3xl">
-                  <Button className="w-full bg-primary" onClick={() => navigate('/waitlist?plan=pro')}>Get Pro</Button>
+                  <Button className="w-full bg-primary" onClick={() => navigate('/waitlist?plan=builder')}>Get Builder</Button>
                 </td>
                 <td className="py-10 px-4 text-center">
-                  <Button className="w-full bg-accent hover:bg-accent/90" onClick={() => navigate('/waitlist?plan=elite')}>Get Elite</Button>
+                  <Button className="w-full bg-accent hover:bg-accent/90" onClick={() => navigate('/waitlist?plan=engineer')}>Get Engineer</Button>
                 </td>
               </tr>
             </tfoot>

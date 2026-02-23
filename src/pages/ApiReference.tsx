@@ -5,7 +5,7 @@ import ApiTable from '@/components/docs/ApiTable';
 export default function ApiReference() {
   return (
     <>
-      <Seo title="API Reference | EACoder AI" description="API reference for EACoder AI components and utilities." />
+      <Seo title="API Reference | StratAI" description="API reference for StratAI components and utilities." />
       <DocLayout title="API Reference" subtitle="Components and utilities">
         <ApiTable rows={[
           { name: 'Button', type: 'component', description: 'Primary action component' },

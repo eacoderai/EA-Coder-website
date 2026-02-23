@@ -23,7 +23,7 @@ function ProductExample() {
 export default function ProductLanding() {
   return (
     <>
-      <Seo title="Product | EACoder AI" description="Product showcase, API, usage, accessibility, responsive tests, and performance for EACoder AI." />
+      <Seo title="Product | StratAI" description="Product showcase, API, usage, accessibility, responsive tests, and performance for StratAI." />
       <DocLayout title="Product" subtitle="Showcase and documentation">
         <div className="rounded-xl border bg-card">
           <div className="px-6 pt-6"><h4>Showcase</h4></div>

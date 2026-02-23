@@ -7,7 +7,7 @@ async function sendMail(to, source) {
   const pass = process.env.ZOHO_SMTP_PASS;
   const from = process.env.ZOHO_FROM || user;
   const notify = process.env.ZOHO_NOTIFY || '';
-  const brand = process.env.BRAND_NAME || 'EACoder AI';
+  const brand = process.env.BRAND_NAME || 'StratAI';
 
   if (!user || !pass) {
     throw new Error('SMTP not configured');
@@ -98,4 +98,3 @@ module.exports = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 };
-

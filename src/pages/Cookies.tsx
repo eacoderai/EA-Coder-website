@@ -4,7 +4,7 @@ import DocLayout from '@/components/docs/DocLayout';
 export default function Cookies() {
   return (
     <>
-      <Seo title="Cookie Policy | EACoder AI" description="Cookie usage and preferences for EACoder AI." />
+      <Seo title="Cookie Policy | StratAI" description="Cookie usage and preferences for StratAI." />
       <DocLayout title="Cookie Policy" subtitle="How we use cookies">
         <div className="rounded-xl border bg-card px-6 py-6">
           <h4 className="mb-2">Usage</h4>

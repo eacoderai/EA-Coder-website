@@ -42,19 +42,19 @@ export function FinalCTA() {
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-lg font-bold shadow-lg shadow-primary/20 flex items-center gap-2"
-            onClick={() => navigate('/waitlist?type=manual')}
+            onClick={() => navigate('/waitlist')}
           >
             <Layout className="w-5 h-5" />
-            I Trade Manually → Get My Plan
+            Get Started Free
           </Button>
           <Button 
             size="lg" 
             variant="outline" 
             className="border-primary/50 hover:bg-primary/10 text-primary rounded-xl h-14 px-8 text-lg font-bold flex items-center gap-2 bg-background/50 backdrop-blur-sm"
-            onClick={() => navigate('/waitlist?type=algo')}
+            onClick={() => navigate('/examples')}
           >
             <Bot className="w-5 h-5" />
-            I Use Bots → Generate My EA
+            View Examples
           </Button>
         </motion.div>
         
@@ -65,7 +65,7 @@ export function FinalCTA() {
           transition={{ delay: 0.4 }}
           className="mt-8 text-sm text-muted-foreground"
         >
-          No credit card required to start your first strategy.
+          Turn plain-language ideas into executable logic. Free to start.
         </motion.p>
       </div>
     </section>

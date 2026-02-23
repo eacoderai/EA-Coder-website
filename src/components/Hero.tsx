@@ -11,9 +11,9 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
       <Seo
-        title="EACoder AI: AI Trading Plans & Automated EAs | Free Trial"
-        description="Turn trading ideas into action. Get a manual plan or automated bot. Free to start."
-        keywords="EACoder AI, trading plan generator, AI trade journal, MQL5 AI generator, no-code trading bot"
+        title="StratAI – AI Strategy Engine | Describe. Generate. Execute."
+        description="Turn plain-language ideas into executable strategy logic. Free to start."
+        keywords="StratAI, AI strategy engine, natural language to code, MQL4, MQL5, Pine Script"
       />
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -65,31 +65,31 @@ export function Hero() {
             Trusted by 10,000+ Traders
           </div>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
-            Your AI Trading Assistant: <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Automate Strategies</span> or Trade Smarter — Instantly.
+          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 leading-tight">
+            Describe. Generate. Execute.
           </h1>
           
           <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
-            Describe your idea in plain English. Get a ready-to-trade plan or a fully automated bot. Free to start.
+            Turn your strategy ideas into code or structured plans — in seconds. No coding required.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-lg font-semibold group flex items-center gap-2"
-              onClick={() => navigate('/waitlist?type=manual')}
+              onClick={() => navigate('/waitlist')}
             >
               <Layout className="w-5 h-5" />
-              I Trade Manually → Get My Plan
+              Get Started Free
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
               className="border-border hover:bg-white/5 text-foreground rounded-xl h-14 px-8 text-lg font-semibold flex items-center gap-2"
-              onClick={() => navigate('/waitlist?type=algo')}
+              onClick={() => navigate('/examples')}
             >
               <Bot className="w-5 h-5" />
-              I Use Bots → Generate My EA
+              View Examples
             </Button>
           </div>
           

@@ -23,7 +23,7 @@ function ResourcesExample() {
 export default function ResourcesLanding() {
   return (
     <>
-      <Seo title="Resources | EACoder AI" description="Resources showcase, API, usage, accessibility, responsive tests, and performance for EACoder AI." />
+      <Seo title="Resources | StratAI" description="Resources showcase, API, usage, accessibility, responsive tests, and performance for StratAI." />
       <DocLayout title="Resources" subtitle="Showcase and documentation">
         <div className="rounded-xl border bg-card">
           <div className="px-6 pt-6"><h4>Showcase</h4></div>

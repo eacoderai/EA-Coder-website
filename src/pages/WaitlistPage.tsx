@@ -44,7 +44,7 @@ export default function WaitlistPage() {
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8">
-                Join 5,000+ traders on the waitlist for EACoder AI. Be the first to know when we launch and get an exclusive 30% discount on your first Pro month.
+                Join 5,000+ users on the waitlist for StratAI. Be the first to know when we launch and get an exclusive 30% discount on your first Builder month.
               </p>
 
               {!submitted ? (
@@ -88,10 +88,10 @@ export default function WaitlistPage() {
 
               <div className="mt-10 space-y-4">
                 {[
-                  'Priority access to AI EA Generator',
+                  'Priority access to Code Engine',
                   'Exclusive early-bird pricing',
                   'Beta testing opportunities',
-                  'Direct support from our quant team',
+                  'Direct support from our strategy team',
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
                     <CheckCircle2 className="w-4 h-4 text-accent" />

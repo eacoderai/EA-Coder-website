@@ -6,7 +6,7 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@
 export default function Roadmap() {
   return (
     <>
-      <Seo title="Roadmap | EACoder AI" description="EACoder AI roadmap with current, upcoming releases, timeline, and priorities." />
+      <Seo title="Roadmap | StratAI" description="StratAI roadmap with current, upcoming releases, timeline, and priorities." />
       <DocLayout title="Product Roadmap" subtitle="Planned releases and priorities">
         <Card>
           <CardHeader>

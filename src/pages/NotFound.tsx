@@ -9,7 +9,7 @@ export default function NotFound() {
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-6">
-      <Seo title="404 - Page Not Found | EACoder AI" description="The page you are looking for does not exist." />
+      <Seo title="404 - Page Not Found | StratAI" description="The page you are looking for does not exist." />
       
       <div className="text-center">
         <motion.div

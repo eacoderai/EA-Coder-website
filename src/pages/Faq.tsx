@@ -5,20 +5,20 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 export default function Faq() {
   return (
     <>
-      <Seo title="FAQ | EACoder AI" description="Frequently asked questions about EACoder AI website, product and usage." />
+      <Seo title="FAQ | StratAI" description="Frequently asked questions about StratAI website, product and usage." />
       <DocLayout title="Frequently Asked Questions" subtitle="Answers to common questions">
         <div className="rounded-xl border bg-card px-6 py-6">
           <Accordion type="single" collapsible>
-            <AccordionItem value="what-is-eacoder">
-              <AccordionTrigger>What is EACoder AI?</AccordionTrigger>
+            <AccordionItem value="what-is-stratai">
+              <AccordionTrigger>What is StratAI?</AccordionTrigger>
               <AccordionContent>
-                EACoder AI is an AI-powered tool that helps traders design and generate Expert Advisors with best-practice patterns and accessible UI components.
+                StratAI is an AI strategy engine that helps you design structured plans and generate executable logic across platforms (MQL4, MQL5, Pine Script).
               </AccordionContent>
             </AccordionItem>
           <AccordionItem value="how-to-start">
             <AccordionTrigger>How do I get started?</AccordionTrigger>
             <AccordionContent>
-                Create an account and log in via the EACoder AI mobile application to unlock full access to all platform features.
+                Create an account and log in via the StratAI application to unlock full access to all platform features.
             </AccordionContent>
           </AccordionItem>
             <AccordionItem value="billing">

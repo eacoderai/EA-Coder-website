@@ -19,10 +19,10 @@ export function FeaturesSection() {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
           >
-            One AI Engine. <span className="text-primary">Two Ways to Trade.</span>
+            The AI Strategy Engine. <span className="text-primary">Two Ways to Build.</span>
           </motion.h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Whether you prefer the discipline of manual trading or the scale of automation, EACoder AI has you covered.
+            Works across trading, crypto, and quantitative strategies. Use natural language to create plans or executable code.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export function FeaturesSection() {
             >
               <div className="order-2 lg:order-1">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
-                  AI Trading Planner
+                  Strategy Planner
                 </div>
                 <h3 className="text-3xl font-bold text-foreground mb-6">
                   Turn Ideas into Actionable Plans
@@ -88,7 +88,7 @@ export function FeaturesSection() {
                   onClick={() => navigate('/waitlist')}
                   className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 h-auto text-lg font-semibold"
                 >
-                  Get My Trading Plan
+                  Get My Strategy Plan
                 </Button>
               </div>
               <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
@@ -115,17 +115,17 @@ export function FeaturesSection() {
               </div>
               <div className="order-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-                  AI EA Generator
+                  Code Engine
                 </div>
                 <h3 className="text-3xl font-bold text-foreground mb-6">
-                  Skip Coding. Deploy Bots Instantly.
+                  Generate Strategy Code Instantly.
                 </h3>
                 <ul className="space-y-4 mb-8">
                   {[
                     { icon: <Code2 className="text-primary" />, text: 'MQL4, MQL5, Pine Script v5 support' },
                     { icon: <TrendingUp className="text-primary" />, text: 'One-click download (.mq4, .mq5, .pine)' },
-                    { icon: <LineChart className="text-primary" />, text: 'Backtesting preview (Elite only)' },
-                    { icon: <Zap className="text-primary" />, text: 'Code converter (Elite only)' },
+                    { icon: <LineChart className="text-primary" />, text: 'Backtesting preview (Engineer only)' },
+                    { icon: <Zap className="text-primary" />, text: 'Code converter (Engineer only)' },
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-muted-foreground">
                       <div className="mt-1">{item.icon}</div>
@@ -137,7 +137,7 @@ export function FeaturesSection() {
                   onClick={() => navigate('/waitlist')}
                   className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 h-auto text-lg font-semibold"
                 >
-                  Generate My EA
+                  Generate Strategy Code
                 </Button>
               </div>
             </motion.div>

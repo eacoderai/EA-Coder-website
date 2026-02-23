@@ -1,9 +1,9 @@
 import { motion } from 'motion/react';
 import { Twitter, Instagram, ShieldCheck, Youtube, Loader2 } from 'lucide-react';
 import { SiTiktok } from '@icons-pack/react-simple-icons';
-import logo from '../assets/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
 import { useState } from 'react';
 import { enqueue, submitNow } from '../utils/submissionQueue';
+import logo from '../assets/StratAI Logo.png';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -34,11 +34,17 @@ export function Footer() {
               className="mb-6 flex items-center gap-3"
               whileHover={{ scale: 1.02 }}
             >
-              <img src={logo} alt="EACoder AI" className="h-10" />
-              <span className="text-2xl font-bold text-foreground">EACoder AI</span>
+              <img 
+                src={logo} 
+                alt="StratAI" 
+                className="h-16 sm:h-18 lg:h-20 w-auto object-contain relative z-10" 
+                loading="lazy" 
+                decoding="async" 
+                fetchPriority="low" 
+              />
             </motion.div>
             <p className="text-muted-foreground text-sm mb-6 max-w-sm">
-              Your AI Trading Assistant. Turn trading ideas into action with professional manual plans or production-ready automated bots.
+              StratAI: The strategy layer for AI. Turn plain-language ideas into executable logic across domains.
             </p>
             <div className="flex gap-4">
               {[
@@ -139,7 +145,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-xs">
-            © {currentYear} EACoder AI. Not financial advice. Test strategies on demo accounts.
+            © {currentYear} StratAI. Not financial advice. Test strategies on demo accounts.
           </p>
           <div className="flex items-center gap-6">
             <span className="text-xs text-muted-foreground flex items-center gap-1">

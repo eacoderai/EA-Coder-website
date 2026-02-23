@@ -4,7 +4,7 @@ import DocLayout from '@/components/docs/DocLayout';
 export default function Community() {
   return (
     <>
-      <Seo title="Community | EACoder AI" description="Community links and channels for EACoder AI." />
+      <Seo title="Community | StratAI" description="Community links and channels for StratAI." />
       <DocLayout title="Community" subtitle="Connect and collaborate">
         <div className="rounded-xl border bg-card px-6 py-6">
           <h4 className="mb-2">Social</h4>

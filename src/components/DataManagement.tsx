@@ -79,7 +79,7 @@ export function DataManagement() {
               transition={{ delay: 0.5 }}
             >
               <p className="text-yellow-800 text-sm">
-                ⚠️ <strong>Important:</strong> EACoder AI generates algorithmic trading code using AI. This is not financial advice. Always test strategies on a demo account before live trading. Past performance is not indicative of future results.
+                ⚠️ <strong>Important:</strong> StratAI generates strategy logic using AI. This is not financial advice. Always test strategies on a demo account before live use. Past performance is not indicative of future results.
               </p>
             </motion.div>
           </motion.div>

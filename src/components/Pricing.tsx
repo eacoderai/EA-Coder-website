@@ -7,10 +7,10 @@ const plans = [
   {
     name: 'Free',
     price: '0',
-    description: 'Perfect for testing the waters.',
+    description: 'Start with core strategy tools.',
     features: [
-      '1 strategy (manual plan OR EA)',
-      'MQL5 only',
+      '1 strategy (plan OR code)',
+      'MQL5 support',
       'Basic AI engine',
       'No credit card required',
     ],
@@ -21,11 +21,11 @@ const plans = [
   {
     name: 'Pro',
     price: '19',
-    description: 'For serious retail traders.',
+    description: 'Generate unlimited strategy code and plans.',
     features: [
       'Unlimited strategies',
       'MQL4 & MQL5 support',
-      'Basic Backtesting',
+      'Basic backtesting',
       'Save last 3 versions',
       'Priority support',
     ],
@@ -37,14 +37,14 @@ const plans = [
   {
     name: 'Elite',
     price: '29',
-    description: 'The ultimate AI edge.',
+    description: 'Full access + Performance Auditor + converter.',
     features: [
       'Everything in Pro',
       'Pine Script support',
-      'Advanced Backtesting + AI Summary',
-      'Code Converter',
-      'Manual Re-analysis',
-      'AI Strategy Recommendations',
+      'Advanced backtesting + AI summary',
+      'Code converter',
+      'Performance Auditor',
+      'AI strategy recommendations',
     ],
     cta: 'Get Elite',
     variant: 'default',
@@ -68,7 +68,7 @@ export function Pricing() {
             Simple, Transparent <span className="text-primary">Pricing.</span>
           </motion.h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Choose the plan that fits your trading style. Save 15% with annual billing.
+            Choose the plan that fits your strategy workflow. Save 15% with annual billing.
           </p>
         </div>
 
@@ -119,7 +119,7 @@ export function Pricing() {
                 }`}
                 onClick={() => navigate('/waitlist')}
               >
-                {plan.name === 'Free' ? 'Get Started' : 'Go ' + plan.name}
+                {plan.cta}
               </Button>
             </motion.div>
           ))}

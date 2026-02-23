@@ -1,7 +1,7 @@
 
-  # EACoder AI Website
+  # StratAI Website
 
-This is the official website for EACoder AI, an AI-powered platform for generating trading bots and professional trading plans.
+This is the official website for StratAI — an AI strategy engine that turns plain-language ideas into executable logic and structured strategy plans across platforms (MQL4, MQL5, Pine Script).
 
   ## Running the code
 

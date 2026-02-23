@@ -1,10 +1,10 @@
 import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { Menu } from 'lucide-react';
-import logo from '../assets/7fd20a902e38f3d55ed520985a4cda2446b8bcc3.png';
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
+import logo from '../assets/StratAI Logo.png';
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -12,7 +12,7 @@ export function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const items = ['Pricing', 'Contact'];
+  const items = ['Features', 'Pricing', 'Docs', 'Blog', 'Contact'];
 
   // Close mobile menu on click outside
   useEffect(() => {
@@ -76,6 +76,18 @@ export function Navigation() {
       return;
     }
 
+    if (slug === 'docs') {
+      navigate('/docs');
+      setMobileOpen(false);
+      return;
+    }
+
+    if (slug === 'blog') {
+      navigate('/resources');
+      setMobileOpen(false);
+      return;
+    }
+
     if (slug === 'contact') {
       navigate('/contact');
       setMobileOpen(false);
@@ -103,11 +115,16 @@ export function Navigation() {
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-3 cursor-pointer"
+          className="flex items-center gap-4 cursor-pointer"
           onClick={() => navigate('/')}
         >
-          <img src={logo} alt="EACoder AI" className="h-10" />
-          <span className="text-xl font-bold text-foreground">EACoder AI</span>
+          <img 
+            src={logo} 
+            alt="StratAI" 
+            className="h-16 sm:h-18 lg:h-20 w-auto object-contain relative z-10" 
+            decoding="async" 
+            fetchPriority="high" 
+          />
         </motion.div>
         
         <div className="hidden md:flex items-center gap-8">
@@ -133,7 +150,7 @@ export function Navigation() {
                 } else {
                   navigate('/features#planner');
                 }
-              }}>Trading Planner</DropdownMenuItem>
+              }}>Strategy Planner</DropdownMenuItem>
               <DropdownMenuItem onClick={() => {
                 if (location.pathname === '/features') {
                   const el = document.getElementById('generator');
@@ -142,7 +159,7 @@ export function Navigation() {
                 } else {
                   navigate('/features#generator');
                 }
-              }}>EA Generator</DropdownMenuItem>
+              }}>Code Engine</DropdownMenuItem>
               <DropdownMenuItem onClick={() => {
                 if (location.pathname === '/features') {
                   const el = document.getElementById('journal-analyzer');
@@ -151,7 +168,7 @@ export function Navigation() {
                 } else {
                   navigate('/features#journal-analyzer');
                 }
-              }}>Journal Analyzer</DropdownMenuItem>
+              }}>Performance Auditor</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           {items.map((item, index) => {

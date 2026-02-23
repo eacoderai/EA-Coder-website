@@ -28,7 +28,7 @@ function ProductListExample() {
 export default function ProductListDocs() {
   return (
     <>
-      <Seo title="Product List | EACoder AI" description="Documentation for the Product footer list including showcase, API, usage, accessibility, responsive testing, and performance." />
+      <Seo title="Product List | StratAI" description="Documentation for the Product footer list including showcase, API, usage, accessibility, responsive testing, and performance." />
       <DocLayout title="Product List" subtitle="Footer list component docs">
         <div className="rounded-xl border bg-card">
           <div className="px-6 pt-6"><h4>Component Showcase</h4></div>
